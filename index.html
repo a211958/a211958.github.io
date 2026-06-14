@@ -1,478 +1,435 @@
-{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        background-color: var(--bg-color);
-        color: var(--text-main);
-        line-height: 1.6;
-        padding-top: 70px; /* Space for sticky nav */
-    }
-
-    h1, h2, h3, h4 {
-        color: var(--text-main);
-        margin-bottom: 1rem;
-    }
-
-    p {
-        color: var(--text-muted);
-        margin-bottom: 1rem;
-    }
-
-    /* Navigation */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: var(--nav-bg);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        z-index: 1000;
-    }
-
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-    }
-
-    .nav-logo {
-        font-weight: 700;
-        font-size: 1.25rem;
-        color: var(--primary);
-        text-decoration: none;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: var(--text-main);
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: var(--transition);
-    }
-
-    .nav-links a:hover {
-        color: var(--primary);
-    }
-
-    /* Layout */
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 4rem 2rem;
-    }
-
-    /* Header / Hero Section */
-    header {
-        background: linear-gradient(135deg, var(--secondary) 0%, var(--bg-color) 100%);
-        padding: 6rem 2rem;
-        text-align: center;
-        border-bottom: 1px solid rgba(191, 139, 46, 0.2);
-    }
-
-    .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-        color: var(--primary);
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .student-info {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-        font-size: 0.95rem;
-        background: var(--card-bg);
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        box-shadow: var(--shadow);
-        display: inline-flex;
-    }
-
-    .student-info span {
-        font-weight: 600;
-        color: var(--text-main);
-    }
-
-    .sdg-badge {
-        background: var(--primary);
-        color: white;
-        padding: 1.5rem;
-        border-radius: var(--border-radius);
-        text-align: left;
-        margin-top: 2rem;
-        box-shadow: var(--shadow);
-    }
-
-    .sdg-badge h3 {
-        color: white;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .sdg-badge p {
-        color: rgba(255,255,255,0.9);
-        margin: 0;
-    }
-
-    /* Section Titles */
-    .section-title {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 3rem;
-        position: relative;
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 4px;
-        background: var(--primary);
-        border-radius: 2px;
-    }
-
-    /* Grid & Cards */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-    }
-
-    .card {
-        background: var(--card-bg);
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        border: 1px solid rgba(0,0,0,0.05);
-        display: flex;
-        flex-direction: column;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-content {
-        padding: 1.5rem;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-        overflow: hidden;
-        background: #000;
-    }
-
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    /* Buttons */
-    .btn {
-        display: inline-block;
-        background: var(--primary);
-        color: white;
-        padding: 0.6rem 1.2rem;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: var(--transition);
-        text-align: center;
-        margin-top: auto;
-    }
-
-    .btn:hover {
-        background: var(--primary-dark);
-    }
-
-    /* Specific Sections */
-    .project-card {
-        grid-column: span 1;
-    }
-    @media (min-width: 768px) {
-        .project-grid {
-            grid-template-columns: repeat(2, 1fr);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portfolio | Muhammad Adam Fitri Bin Tahir</title>
+    <style>
+        :root {
+            /* SDG 12 Color Theme (Responsible Consumption and Production - Gold/Mustard) */
+            --primary: #BF8B2E; 
+            --primary-dark: #9A6F24;
+            --secondary: #F4E8D4;
+            --bg-color: #FDFBF7;
+            --text-main: #2C2C2C;
+            --text-muted: #5A5A5A;
+            --card-bg: #FFFFFF;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.03);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
         }
-    }
 
-    .skills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-    }
-
-    .skill-chip {
-        background: var(--secondary);
-        color: var(--primary-dark);
-        padding: 0.5rem 1.2rem;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-
-    .resources-list {
-        list-style-type: none;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .resources-list li {
-        background: var(--card-bg);
-        padding: 1rem 1.5rem;
-        margin-bottom: 1rem;
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        border-left: 4px solid var(--primary);
-    }
-
-    /* Footer */
-    footer {
-        background: var(--text-main);
-        color: white;
-        text-align: center;
-        padding: 3rem 2rem;
-        margin-top: 4rem;
-    }
-
-    footer p {
-        color: rgba(255,255,255,0.7);
-        margin-bottom: 0.5rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none; /* Simplification for mobile, usually needs a hamburger menu but kept inline for constraints */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
         .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--bg-color) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(191, 139, 46, 0.2);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .student-info {
+            display: inline-flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .student-info span {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .sdg-badge {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: left;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .sdg-badge h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sdg-badge p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
             justify-content: center;
         }
-        .student-info {
-            flex-direction: column;
-            gap: 0.5rem;
-            border-radius: 12px;
-            text-align: left;
+
+        .skill-chip {
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
-        .hero-title {
-            font-size: 2rem;
+
+        .resources-list {
+            list-style-type: none;
+            max-width: 800px;
+            margin: 0 auto;
         }
-    }
-</style>
 
-<nav>
-    <div class="nav-container">
-        <a href="#home" class="nav-logo">AduKafe Portfolio</a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#labs">Labs</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#reflection">Reflection</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#resources">Resources</a></li>
-        </ul>
-    </div>
-</nav>
+        .resources-list li {
+            background: var(--card-bg);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+        }
 
-<header id="home">
-    <div class="hero-content">
-        <div class="hero-subtitle">Software Engineering E-Portfolio</div>
-        <h1 class="hero-title">Muhammad Adam Fitri Bin Tahir</h1>
-        
-        <div class="student-info">
-            <div><span>Matric No:</span> A211958</div>
-            <div><span>Programme:</span> Software Engineering</div>
-            <div><span>Instructor:</span> Dr. Nazatul Aini Binti Abd Majid</div>
+        footer {
+            background: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-container {
+                justify-content: center;
+            }
+            .student-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                border-radius: 12px;
+                text-align: left;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">AduKafe Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
-            Hello everyone! I’m an undergraduate student of the software engineering course. Here is my list of lab and project journey to build up the “AduKafe” app that functions as a real-time price-ceiling checker and an interactive reporting system.
-        </p>
+    <header id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle">Software Engineering E-Portfolio</div>
+            <h1 class="hero-title">Muhammad Adam Fitri Bin Tahir</h1>
+            
+            <div class="student-info">
+                <div><span>Matric No:</span> A211958</div>
+                <div><span>Programme:</span> Software Engineering</div>
+                <div><span>Instructor:</span> Dr. Nazatul Aini Binti Abd Majid</div>
+            </div>
 
-        <div class="sdg-badge">
-            <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> SDG 12: Responsible Consumption and Production</h3>
-            <p><strong>Core Problem:</strong> We are tackling food price manipulation and the lack of price ceiling transparency across campus cafeterias, which unfairly burdens university students. AduKafe empowers students to report and monitor these issues transparently.</p>
+            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                Hello everyone! I’m an undergraduate student of the software engineering course. Here is my list of lab and project journey to build up the “AduKafe” app that functions as a real-time price-ceiling checker and an interactive reporting system.
+            </p>
+
+            <div class="sdg-badge">
+                <h3>SDG 12: Responsible Consumption and Production</h3>
+                <p><strong>Core Problem:</strong> We are tackling food price manipulation and the lack of price ceiling transparency across campus cafeterias, which unfairly burdens university students. AduKafe empowers students to report and monitor these issues transparently.</p>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<section id="labs" class="container">
-    <h2 class="section-title">Lab Progress</h2>
-    <div class="grid">
-        
-        <article class="card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/IWOUf7grKhE](https://www.youtube.com/embed/IWOUf7grKhE)" title="Lab 1 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Lab 1: UI Fundamentals</h3>
-                <p>This lab focused on the fundamentals of building a user interface using Jetpack Compose. I learned how to structure layouts with Columns and Rows, and apply basic modifiers to create a clean, responsive screen.</p>
-            </div>
-        </article>
+    <section id="labs" class="container">
+        <h2 class="section-title">Lab Progress</h2>
+        <div class="grid">
+            
+            <article class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/IWOUf7grKhE" title="Lab 1 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 1: UI Fundamentals</h3>
+                    <p>This lab focused on the fundamentals of building a user interface using Jetpack Compose. I learned how to structure layouts with Columns and Rows, and apply basic modifiers to create a clean, responsive screen.</p>
+                </div>
+            </article>
 
-        <article class="card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/YxPAhHHjrcw](https://www.youtube.com/embed/YxPAhHHjrcw)" title="Lab 2 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Lab 2: Interaction</h3>
-                <p>In this lab, I explored user interaction by implementing clickable elements and state management mechanisms. Managing state effectively allowed the app UI to dynamically update in response to user inputs.</p>
-            </div>
-        </article>
+            <article class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/YxPAhHHjrcw" title="Lab 2 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 2: Interaction</h3>
+                    <p>In this lab, I explored user interaction by implementing clickable elements and state management mechanisms. Managing state effectively allowed the app UI to dynamically update in response to user inputs.</p>
+                </div>
+            </article>
 
-        <article class="card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/R8V5cQ_uMGg](https://www.youtube.com/embed/R8V5cQ_uMGg)" title="Lab 3 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Lab 3: Material Design</h3>
-                <p>I applied Material Design 3 principles to enhance the visual appeal of the app. Utilizing Material components like Cards, Scaffolds, and consistent typography significantly improved the overall user experience.</p>
-            </div>
-        </article>
+            <article class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/R8V5cQ_uMGg" title="Lab 3 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 3: Material Design</h3>
+                    <p>I applied Material Design 3 principles to enhance the visual appeal of the app. Utilizing Material components like Cards, Scaffolds, and consistent typography significantly improved the overall user experience.</p>
+                </div>
+            </article>
 
-        <article class="card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/mhkDxwqcONc](https://www.youtube.com/embed/mhkDxwqcONc)" title="Lab 4 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Lab 4: Navigation</h3>
-                <p>This session covered navigation within a Jetpack Compose application using NavHost. I successfully implemented multi-screen flows, allowing seamless transitions between the dashboard, forms, and detail screens.</p>
-            </div>
-        </article>
+            <article class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/mhkDxwqcONc" title="Lab 4 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 4: Navigation</h3>
+                    <p>This session covered navigation within a Jetpack Compose application using NavHost. I successfully implemented multi-screen flows, allowing seamless transitions between the dashboard, forms, and detail screens.</p>
+                </div>
+            </article>
 
-        <article class="card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/A3_TfkmCyzQ](https://www.youtube.com/embed/A3_TfkmCyzQ)" title="Lab 5 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Lab 5: Room Database</h3>
-                <p>I integrated the Room database to handle local data persistence efficiently. This ensures that user profiles and complaint histories remain securely saved on the device even after the app is completely closed.</p>
-            </div>
-        </article>
+            <article class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/A3_TfkmCyzQ" title="Lab 5 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 5: Room Database</h3>
+                    <p>I integrated the Room database to handle local data persistence efficiently. This ensures that user profiles and complaint histories remain securely saved on the device even after the app is completely closed.</p>
+                </div>
+            </article>
 
-    </div>
-</section>
+        </div>
+    </section>
 
-<section id="projects" class="container" style="background-color: #FFFFFF; border-radius: var(--border-radius); box-shadow: var(--shadow);">
-    <h2 class="section-title">Major Projects</h2>
-    <div class="grid project-grid">
-        
-        <article class="card project-card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/0sPVO_UPJG4](https://www.youtube.com/embed/0sPVO_UPJG4)" title="Project 1 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Project 1: AduKafe (Core Features)</h3>
-                <p><strong>Problem Statement:</strong> Students often fall victim to unverified food prices in campus cafeterias. There was currently no centralized digital platform to verify ceiling prices or report overcharging incidents.</p>
-                <p><strong>Lessons Learned:</strong> Building this initial version taught me the importance of a solid navigation structure and state hoisting. I also learned how to integrate basic UI elements to create an intuitive reporting flow for end users.</p>
-                <a href="[https://github.com/a211958/A211958_ADAMFITRI_DRNAZATUL_Project1](https://github.com/a211958/A211958_ADAMFITRI_DRNAZATUL_Project1)" target="_blank" class="btn">View on GitHub</a>
-            </div>
-        </article>
-
-        <article class="card project-card">
-            <div class="video-container">
-                <iframe src="[https://www.youtube.com/embed/_xRSkIm13ao](https://www.youtube.com/embed/_xRSkIm13ao)" title="Project 2 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="card-content">
-                <h3>Project 2: AduKafe (API + Cloud + Sensors)</h3>
-                <p><strong>Problem Statement:</strong> The lack of real-time price ceiling updates and cloud synchronization limited the effectiveness of local-only reporting. Students needed a way to verify live prices and submit verified photographic proof directly to the administration.</p>
-                <p><strong>Lessons Learned:</strong> Integrating hardware sensors provided hands-on experience with Android permissions and the FileProvider API. Furthermore, syncing Room databases with Firebase and fetching live REST APIs via Retrofit greatly expanded my understanding of modern Android architecture.</p>
-                <a href="[https://github.com/a211958/A211958_ADAMFITRI_DRNAZATULAINI_PROJECT2.git](https://github.com/a211958/A211958_ADAMFITRI_DRNAZATULAINI_PROJECT2.git)" target="_blank" class="btn">View on GitHub</a>
-            </div>
-        </article>
-
-    </div>
-</section>
-
-<section id="reflection" class="container">
-    <h2 class="section-title">Reflection & Learning Journey</h2>
-    <div style="background: var(--card-bg); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; max-width: 900px; margin: 0 auto;">
-        <p style="font-size: 1.1rem; color: var(--text-main);">
-            My learning journey throughout this course has been incredibly rewarding, transitioning from basic UI layouts to building a fully functional, cloud-connected Android application. Developing 'AduKafe' challenged me to understand complex state management, local data persistence, and remote API integrations in Jetpack Compose. I gained a profound appreciation for how technology can directly solve real-world campus issues like price manipulation and student welfare. Moving forward, I am excited to apply these comprehensive Android development skills to even more impactful, community-driven software projects.
-        </p>
-    </div>
-</section>
-
-<section id="skills" class="container">
-    <h2 class="section-title">Skills & Tech Stack</h2>
-    <div class="skills-container">
-        <span class="skill-chip">Kotlin</span>
-        <span class="skill-chip">Jetpack Compose</span>
-        <span class="skill-chip">Room Database</span>
-        <span class="skill-chip">Retrofit REST API</span>
-        <span class="skill-chip">Firebase Realtime DB</span>
-        <span class="skill-chip">ML Kit</span>
-        <span class="skill-chip">CameraX API</span>
-        <span class="skill-chip">Coil (Image Loading)</span>
-        <span class="skill-chip">Accompanist Permissions</span>
-        <span class="skill-chip">Git / GitHub</span>
-    </div>
-</section>
-
-<section id="resources" class="container">
-    <h2 class="section-title">Resources & Acknowledgements</h2>
-    <ul class="resources-list">
-        <li>
-            <strong>Libraries & APIs:</strong> 
-            <p>AndroidX Core, Jetpack Navigation Compose, Room Persistence Library, Retrofit 2 for network calls, Firebase BOM, Coil for asynchronous image loading, and Google Accompanist for handling runtime permissions.</p>
-        </li>
-        <li>
-            <strong>Acknowledgement:</strong>
-            <p>Special thanks to Dr. Nazatul Aini Binti Abd Majid for her continuous guidance and lectures throughout this course. I also acknowledge the use of AI tools (such as Google Gemini/ChatGPT) to assist with UI refinement, debugging compilation errors, formatting code structures, and generating boilerplate syntax during the development lifecycle.</p>
-        </li>
-    </ul>
-</section>
-
-<footer>
-    <p>&copy; 2024 Muhammad Adam Fitri Bin Tahir.</p>
-    <p>Matric: A211958 | Software Engineering Program</p>
-</footer>
+    <section id="projects" class="container" style="background-color: #FFFFFF; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+        <h2 class="section-title">Major Projects</h2>
+        <div class="project-grid">
+            
+            <article class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/0sPVO_UPJG4" title="Project 1 Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Project 1: AduKafe (Core Features)</h3>
+                    <p><strong>Problem Statement:</strong> Students often fall victim to unverified food prices in campus cafeterias. There was currently no centralized digital platform to verify ceiling prices or report overcharging incidents.</p>
+                    <p><strong>Lessons Learned:</strong> Building this initial version taught me the importance
